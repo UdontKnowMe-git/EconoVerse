@@ -1,10 +1,10 @@
 # EconoVerse
-A fun terminal game consisting of basic economy related stuff. Grind and Chill with other users in this fun online game!
+A fun terminal game consisting of basic economy-related stuff. Grind and Chill with other users in this fun online game!
 
-*Still under active development as I am still learning and new to 
-the networking part of this project*
+*Under active development*
 
-**Open to all suggestions!** You too can help and contribute in this project and assist in the creation of the game
+**Open to all suggestions!** You too can help and contribute to this project and assist in the creation of the game
+I will happily read all suggestions or bug fixes
 ## TODO:
 
 ***Creating necessary modules and functions:***
