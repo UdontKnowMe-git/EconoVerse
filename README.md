@@ -16,8 +16,7 @@ I will happily read all suggestions or bug fixes
 - Implement a live world chat
 
 ***Stuff to learn along the journey:***
-- Firebase
-- Firestore
+- ~~Firebase~~ An alternate to firebase since firebase is paid
 - Basic networking
 - Multi-threading
 - Data management
