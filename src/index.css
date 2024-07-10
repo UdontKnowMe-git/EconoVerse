@@ -1,0 +1,38 @@
+/* src/index.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'VT323', monospace;
+  background-color: #121212;  /* Dark background */
+  color: #e0e0e0;  /* Light text color */
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Custom Scrollbar Styles for dark mode */
+.message-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background-color: #444;  /* Dark scrollbar thumb */
+  border-radius: 10px;
+}
+
+.message-list::-webkit-scrollbar-track {
+  background-color: #2a2a2a;  /* Dark scrollbar track */
+}
+.send-button {
+  width: 20px;
+  height: 20px;
+  background: url('send-arrow.png') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
