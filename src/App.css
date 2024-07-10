@@ -1,77 +1,38 @@
-body {
-  background-color: #121212;
-  color: #e0e0e0;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.chat {
-  width: 300px;
-  margin: auto;
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-h1 {
-  color: #e0e0e0;
+.App {
   text-align: center;
 }
 
-.message-list {
-  border: 1px solid #333;
-  padding: 10px;
-  height: 200px;
-  overflow-y: scroll;
-  margin-bottom: 10px;
-  background-color: #2a2a2a;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.message {
-  margin-bottom: 5px;
-  color: #e0e0e0;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-input[type="text"] {
-  width: calc(100% - 22px);
-  padding: 5px;
-  margin-bottom: 10px;
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #555;
-  border-radius: 5px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-button {
-  width: 100%;
-  padding: 5px;
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #555;
-  border-radius: 5px;
-  cursor: pointer;
+.App-link {
+  color: #61dafb;
 }
 
-button:hover {
-  background-color: #444;
-}
-
-/* Custom Scrollbar Styles */
-.message-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.message-list::-webkit-scrollbar-thumb {
-  background-color: #444;
-  border-radius: 10px;
-}
-
-.message-list::-webkit-scrollbar-track {
-  background-color: #2a2a2a;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
