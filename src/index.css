@@ -2,7 +2,9 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'VT323', monospace;
+  font-family: 'Press Start 2P', cursive;
+  font-stretch: condensed;
+  font-size: 10px;
   background-color: #121212;  /* Dark background */
   color: #e0e0e0;  /* Light text color */
   height: 100%;

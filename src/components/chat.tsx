@@ -59,7 +59,7 @@ const Chat: React.FC = () => {
 
   return (
     <div className="chat">
-      <h1>World Chat</h1>
+      <h2>World Chat</h2>
       <div className="message-list">
         {messages.map((msg) => (
           <div key={msg.id} className="message">
