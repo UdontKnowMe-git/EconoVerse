@@ -1,11 +1,22 @@
 body { /*Already exists in ./index.css just making it here again for simplicity */
-  background-color: #121212;
-  color: #e0e0e0;
   margin: 0;
   padding: 0;
   display: flex;
   height: 100vh;
   flex-direction: column;
+}
+header {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #000000;
+}
+
+header h1 {
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 2em;
+  text-decoration: underline;
 }
 .App {
   display: flex;
@@ -18,7 +29,7 @@ body { /*Already exists in ./index.css just making it here again for simplicity 
 .chat-container {
   width: 300px; /* Adjust the width as needed */
   margin: 0 20px;
-  background-color: #1e1e1e;
+  background-color: #000000;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -38,19 +49,22 @@ h2 {
   height: 200px;
   overflow-y:hidden;
   margin-bottom: 10px;
-  background-color: #2a2a2a;
+  background-color: #000000;
 }
 
 .message {
+  padding-left: 0px;
   margin-bottom: 5px;
-  color: #e0e0e0;
+  color: #1aff00;
+  font-size: smaller;
 }
 
 input[type="text"] {
   width: calc(100% - 40px);
   padding: 5px;
+  padding-top: 3px;
   margin-bottom: 10px;
-  background-color: #333;
+  background-color: #0f0f0f;
   color: #e0e0e0;
   border: 1px solid #555;
   border-radius: 5px;
@@ -62,13 +76,14 @@ button {
   padding-left: 21px;
   background-color: #333;
   color: #e0e0e0;
-  border: 1px solid #555;
+  border: 1px solid #01f926;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #3e3e3e;
 }
 
 /* Custom Scrollbar Styles */

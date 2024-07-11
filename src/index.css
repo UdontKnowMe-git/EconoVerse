@@ -5,7 +5,7 @@ body, html {
   font-family: 'Press Start 2P', cursive;
   font-stretch: condensed;
   font-size: 10px;
-  background-color: #121212;  /* Dark background */
+  background-color: #000000;  /* Dark background */
   color: #e0e0e0;  /* Light text color */
   height: 100%;
 }
