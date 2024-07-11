@@ -1,14 +1,12 @@
-/* body {
+body { /*Already exists in ./index.css just making it here again for simplicity */
   background-color: #121212;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  /* align-items: center;
   height: 100vh;
-} */
-
+  flex-direction: column;
+}
 .App {
   display: flex;
   justify-content: flex-end; /* Align items to the right */
@@ -34,6 +32,7 @@ h2 {
 .message-list {
   max-width: 200px;
   overflow-wrap: break-word;
+  overflow-y: scroll;
   border: 1px solid #333;
   padding: 10px;
   height: 200px;
