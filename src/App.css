@@ -14,7 +14,7 @@ header {
 
 header h1 {
   margin: 0;
-  color: #e0e0e0;
+  color: #00ffd0;
   font-size: 2em;
   text-decoration: underline;
 }
@@ -36,7 +36,7 @@ header h1 {
 }
 
 h2 {
-  color: #e0e0e0;
+  color: #00ff08;
   text-align: center;
 }
 
