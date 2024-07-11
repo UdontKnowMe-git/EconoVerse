@@ -1,3 +1,13 @@
+.App {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'VT323', monospace;
+}
+
 body {
   background-color: #121212;
   color: #e0e0e0;
@@ -5,15 +15,16 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; 
   align-items: center;
   height: 100vh;
 }
 
 .chat-container {
-  width: 25%; /* Adjust the width as needed */
+  width: 25%; 
   margin: 0 20px;
   background-color: #1e1e1e;
+  justify-content: flex-end;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -35,15 +46,15 @@ h1 {
 
 .message {
   margin-bottom: 5px;
-  color: #e0e0e0;
+  color: #202020;
 }
 
 input[type="text"] {
   width: calc(100% - 22px);
   padding: 5px;
   margin-bottom: 10px;
-  background-color: #333;
-  color: #e0e0e0;
+  background-color: #424242;
+  color: #fcfcfc;
   border: 1px solid #555;
   border-radius: 5px;
 }
