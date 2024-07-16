@@ -15,4 +15,5 @@ I would love to hear out your suggestions and ideas to implement in the game, si
 - Fetch stock prices using API
 - Economy and banks
 - Plotter
+- Login system
 - more updates..
