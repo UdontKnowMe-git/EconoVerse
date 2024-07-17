@@ -1,14 +1,15 @@
-// src/components/Login.tsx
 import React, { useState } from 'react';
 import supabase from '../supabaseClient';
 import bcrypt from 'bcryptjs';
 import { useAuth } from '../context/AuthContext';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isSignup, setIsSignup] = useState(false);
   const { login } = useAuth();
+  const history = useHistory();
 
   const handleLogin = async () => {
     const { data, error } = await supabase
@@ -26,6 +27,7 @@ const Login = () => {
     if (isValid) {
       console.log('Login successful');
       login(username);
+      history.push('/');
     } else {
       console.error('Invalid credentials');
     }
@@ -45,6 +47,7 @@ const Login = () => {
 
     console.log('Signup successful');
     login(username);
+    history.push('/');
   };
 
   return (

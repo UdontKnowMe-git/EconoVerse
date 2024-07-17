@@ -11,7 +11,16 @@ header {
   padding: 20px 0;
   background-color: #000000;
 }
-
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 header h1 {
   margin: 0;
   color: #00ffd0;
@@ -19,6 +28,7 @@ header h1 {
   text-decoration: underline;
 }
 .App {
+  text-align: center;
   display: flex;
   justify-content: flex-end; /* Align items to the right */
   align-items: center;
