@@ -3,71 +3,98 @@ import React, { useState } from 'react';
 import supabase from '../supabaseClient';
 import bcrypt from 'bcryptjs';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isSignup, setIsSignup] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const { data, error } = await supabase
-      .from('auth-creds')
-      .select('*')
-      .eq('username', username)
-      .single();
+    setError(null); // Clear previous errors
+    try {
+      const { data, error } = await supabase
+        .from('auth-creds')
+        .select('*')
+        .eq('username', username)
+        .single();
 
-    if (error) {
-      console.error('User not found');
-      return;
-    }
+      if (error) {
+        setError('User not found');
+        return;
+      }
 
-    const isValid = await bcrypt.compare(password, data.pass_hash);
-    if (isValid) {
-      console.log('Login successful');
-      login(username);
-    } else {
-      console.error('Invalid credentials');
+      const isValid = await bcrypt.compare(password, data.pass_hash);
+      if (isValid) {
+        login(username);
+        navigate('/');
+      } else {
+        setError('Invalid credentials');
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+      console.error(err);
     }
   };
 
   const handleSignup = async () => {
-    const pass_hash = await bcrypt.hash(password, 10);
+    setError(null); // Clear previous errors
 
-    const { data, error } = await supabase
-      .from('auth-creds')
-      .insert([{ username, pass_hash }]);
-
-    if (error) {
-      console.error('Signup failed');
+    // Check for empty fields (New code)
+    if (!username || !password) {
+      setError('Both fields are required.');
       return;
     }
 
-    console.log('Signup successful');
-    login(username);
+    try {
+      const pass_hash = await bcrypt.hash(password, 10);
+
+      const { error } = await supabase
+        .from('auth-creds')
+        .insert([{ username, pass_hash }]);
+
+      if (error) {
+        setError('Signup failed');
+        return;
+      }
+
+      login(username);
+      navigate('/');
+    } catch (err) {
+      setError('An unexpected error occurred');
+      console.error(err);
+    }
   };
 
   return (
-    <div>
-      <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={isSignup ? handleSignup : handleLogin}>
-        {isSignup ? 'Sign Up' : 'Login'}
-      </button>
-      <button onClick={() => setIsSignup(!isSignup)}>
-        {isSignup ? 'Already have an account? Login' : "Don't have an account? Sign Up"}
-      </button>
+    <div id="login-container">
+      <div id="login-box">
+        <h2 id="login-title">{isSignup ? 'Sign Up' : 'Login'}</h2>
+        {error && <p id="error-message">{error}</p>}
+        <input
+          id="login-username"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          id="login-password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button id="login-submit" onClick={isSignup ? handleSignup : handleLogin}>
+          {isSignup ? 'Sign Up' : 'Login'}
+        </button>
+        <button id="toggle-signup" onClick={() => setIsSignup(!isSignup)}>
+          {isSignup ? 'Already have an account? Login' : "Don't have an account? Sign Up"}
+        </button>
+      </div>
     </div>
   );
 };
