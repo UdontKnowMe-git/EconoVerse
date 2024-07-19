@@ -113,10 +113,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: #000000;
+  border: 1px solid #00ffff
 }
 
 #login-box {
-  background-color: #1e1e1e;
+  background-color: #000000;
+  border: 1px solid #00ffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -134,9 +137,9 @@ button:hover {
   width: calc(100% - 22px);
   padding: 5px;
   margin-bottom: 10px;
-  background-color: #333;
+  background-color: #000000;
   color: #e0e0e0;
-  border: 1px solid #555;
+  border: 1px solid #66ff00;
   border-radius: 5px;
 }
 
@@ -144,9 +147,9 @@ button:hover {
 #toggle-signup {
   width: 100%;
   padding: 5px;
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #555;
+  background-color: #000000;
+  color: #0dff00;
+  border: 1px solid #00ff7b;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 10px;
