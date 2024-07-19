@@ -9,10 +9,7 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className="app-container">
-          <header>
-            <h1>Econoverse</h1>
-          </header>
+        <div className="app-container">          
           <main>
             <Routes>
               <Route path="/" element={<Chat />} />
