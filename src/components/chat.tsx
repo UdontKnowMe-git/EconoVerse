@@ -1,6 +1,7 @@
 // src/components/Chat.tsx
 import React, { useEffect, useState } from 'react';
 import supabase from '../supabaseClient';
+import { useAuth } from '../context/AuthContext';
 
 interface Message {
   id: number;
@@ -10,6 +11,7 @@ interface Message {
 }
 
 const Chat: React.FC = () => {
+  const { user } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
 
@@ -31,12 +33,13 @@ const Chat: React.FC = () => {
     fetchMessages();
 
     const messageSubscription = supabase
-    .channel('public:chat')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'chat' }, (payload: {new: Message}) => {
+      .channel('public:chat')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'chat' }, (payload: { new: Message }) => {
         setMessages((prevMessages) => {
           const updatedMessages = [...prevMessages, payload.new];
           return updatedMessages.slice(-10);
-        });})
+        });
+      })
       .subscribe();
 
     return () => {
@@ -45,10 +48,14 @@ const Chat: React.FC = () => {
   }, []);
 
   const handleMessageSend = async () => {
-    const user = 'idk';
+    if (!user) {
+      console.error('User is not logged in');
+      return;
+    }
+
     const { error } = await supabase
       .from('chat')
-      .insert([{ user, message: newMessage }]);
+      .insert([{ user: user, message: newMessage }]);
 
     if (error) {
       console.error(error);

@@ -1,80 +1,69 @@
-body { /*Already exists in ./index.css just making it here again for simplicity */
+/* src/App.css */
+
+body {
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
   margin: 0;
   padding: 0;
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-}
-header {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
   background-color: #000000;
+  color: #e0e0e0;
 }
-.login-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #121212;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-header h1 {
+
+header {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 20px;
+}
+
+h1 {
   margin: 0;
-  color: #00ffd0;
-  font-size: 2em;
+  font-size: 2rem;
   text-decoration: underline;
 }
-.App {
-  text-align: center;
+
+main {
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  justify-content: flex-end;
+  padding: 20px;
+  flex: 1;
 }
 
-.chat-container {
-  width: 300px; /* Adjust the width as needed */
-  margin: 0 20px;
-  background-color: #000000;
+.chat {
+  width: 300px;
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-h2 {
-  color: #00ff08;
-  text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .message-list {
-  max-width: 200px;
-  overflow-wrap: break-word;
-  overflow-y: scroll;
   border: 1px solid #333;
   padding: 10px;
   height: 200px;
-  overflow-y:hidden;
+  overflow-y: auto;
   margin-bottom: 10px;
-  background-color: #000000;
+  background-color: #2a2a2a;
+  word-wrap: break-word;
 }
 
 .message {
-  padding-left: 0px;
   margin-bottom: 5px;
-  color: #1aff00;
-  font-size: smaller;
 }
 
 input[type="text"] {
-  width: calc(100% - 40px);
+  width: calc(100% - 22px);
   padding: 5px;
-  padding-top: 3px;
   margin-bottom: 10px;
-  background-color: #0f0f0f;
+  background-color: #333;
   color: #e0e0e0;
   border: 1px solid #555;
   border-radius: 5px;
@@ -83,20 +72,31 @@ input[type="text"] {
 button {
   width: 100%;
   padding: 5px;
-  padding-left: 21px;
   background-color: #333;
   color: #e0e0e0;
-  border: 1px solid #01f926;
+  border: 1px solid #555;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Press Start 2P', monospace;
 }
 
 button:hover {
-  background-color: #3e3e3e;
+  background-color: #444;
 }
 
-/* Custom Scrollbar Styles */
+.send-button {
+  background: url('send-arrow.png') no-repeat center center;
+  background-size: contain;
+  border: none;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.send-button:hover {
+  background-color: transparent;
+}
+
 .message-list::-webkit-scrollbar {
   width: 8px;
 }
@@ -110,12 +110,15 @@ button:hover {
   background-color: #2a2a2a;
 }
 
-/* Customize send button */
-button img {
-  width: 20px; /* Adjust the size as needed */
-  height: 20px; /* Adjust the size as needed */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.chat-container input[type="text"] {
-  margin-bottom: 0;
+.login-container input,
+.login-container button {
+  display: block;
+  margin: 10px auto;
 }

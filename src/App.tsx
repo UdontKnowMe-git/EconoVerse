@@ -1,53 +1,27 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+// src/App.tsx
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Chat from './components/chat';
 import Login from './components/login';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import './index.css';
 import './App.css';
 
-const ProtectedRoute: React.FC<{ component: React.FC; path: string; exact?: boolean }> = ({
-  component: Component,
-  path,
-  exact = false,
-}) => {
+const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
   const { user } = useAuth();
+  return user ? element : <Navigate to="/login" />;
+};
+
+const App = () => {
   return (
-    <Route
-      path={path}
-      exact={exact}
-      render={(props) =>
-        user ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<ProtectedRoute element={<Chat />} />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </AuthProvider>
   );
 };
 
-const App: React.FC = () => {
-  const { login } = useAuth();
-
-  useEffect(() => {
-    const cookies = document.cookie.split('; ');
-    const userCookie = cookies.find((row) => row.startsWith('user='));
-    if (userCookie) {
-      const user = userCookie.split('=')[1];
-      login(user);
-    }
-  }, [login]);
-
-  return (
-    <Router>
-      <Switch>
-        <Route path="/login" Component={Login} />
-        <ProtectedRoute path="/" exact component={Chat} />
-      </Switch>
-    </Router>
-  );
-};
-
-const AppWrapper: React.FC = () => (
-  <AuthProvider>
-    <App />
-  </AuthProvider>
-);
-
-export default AppWrapper;
+export default App;
