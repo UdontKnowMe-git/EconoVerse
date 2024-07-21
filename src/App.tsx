@@ -9,14 +9,10 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className="app-container">          
-          <main>
-            <Routes>
-              <Route path="/" element={<Chat />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </main>
-        </div>
+        <Routes>
+          <Route path="/" element={<div className="chat-container"><Chat /></div>} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </Router>
     </AuthProvider>
   );
