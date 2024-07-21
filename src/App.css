@@ -3,6 +3,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   margin: 0;
   padding: 0;
+  align-items: center;
   background-color: #000000;
   color: #e0e0e0;
 }
@@ -121,6 +122,8 @@ button:hover {
   background-color: #000000;
   border: 1px solid #00ffff;
   padding: 20px;
+  width: 5  00px;
+  max-width: 500px, fit-content;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -147,6 +150,7 @@ button:hover {
 #toggle-signup {
   width: 100%;
   padding: 5px;
+  font-family:"Press start 2P";
   background-color: #000000;
   color: #0dff00;
   border: 1px solid #00ff7b;
