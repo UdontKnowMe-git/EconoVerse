@@ -1,4 +1,4 @@
-/* src/App.css 
+/* src/App.css OLD
 body {
   font-family: 'Press Start 2P', cursive;
   margin: 0;
@@ -199,9 +199,9 @@ main {
 
 .chat-container {
   display: flex;
-  justify-content: flex-end; 
-  width: 700px;
-  padding-right: 20px;
+  justify-content: flex-start; 
+  width: 300px;
+  padding-right: 2px;
 }
 
 .chat {
@@ -307,8 +307,11 @@ button:hover {
 #login-username,
 #login-password {
   width: calc(100% - 22px);
+  justify-self: center;
   padding: 5px;
   margin-bottom: 10px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
   background-color: #000000;
   color: #e0e0e0;
   border: 1px solid #66ff00;
