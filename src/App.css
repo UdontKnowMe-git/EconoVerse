@@ -206,6 +206,8 @@ main {
 
 .chat {
   width: 300px;
+  border: 1px solid #0dff00;
+  border-radius: 10px;
   background-color: #000000;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -219,7 +221,7 @@ main {
   height: 200px;
   overflow-y: auto;
   margin-bottom: 10px;
-  background-color: #2a2a2a;
+  background-color: #000000;
   word-wrap: break-word;
 }
 
@@ -228,18 +230,22 @@ main {
 }
 
 input[type="text"] {
-  width: calc(100% - 22px);
+  width: calc(100% - 45px);
   padding: 5px;
   margin-bottom: 10px;
-  background-color: #333;
+  height: 18px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  background-color: #000000;
   color: #e0e0e0;
-  border: 1px solid #555;
+  border: 1px solid #00f7ff;
   border-radius: 5px;
 }
 
 button {
   width: 100%;
   padding: 5px;
+  padding-top: 1px;
   background-color: #333;
   color: #e0e0e0;
   border: 1px solid #555;
@@ -255,8 +261,8 @@ button:hover {
   background: url('send-arrow.png') no-repeat center center;
   background-size: contain;
   border: none;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   cursor: pointer;
   margin-left: 5px;
 }
@@ -289,8 +295,12 @@ button:hover {
 #login-box {
   background-color: #000000;
   border: 1px solid #00ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  width: 100%;
+  width: 500px;
   max-width: 500px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -313,7 +323,7 @@ button:hover {
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
   background-color: #000000;
-  color: #e0e0e0;
+  color: #62ff00;
   border: 1px solid #66ff00;
   border-radius: 5px;
 }
