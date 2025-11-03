@@ -4,11 +4,7 @@
 **Under Active development**
 I would love to hear out your suggestions and ideas to implement in the game, since I am new in this field and still learning many of the concepts
 
-## Progress:
-- Basic frontend, react setup and css
-- World chat
-- Basic Theme
-- Storage Database
+Still under construction...
 
 ## Todo:
 - Backend
