@@ -1,0 +1,40 @@
+name: Frontend Pull Request Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  frontend-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: package.json
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run type check
+        run: pnpm type-check
+
+      - name: Check linting
+        run: pnpm lint
+
+      - name: Run format check
+        run: pnpm format-check
+
+      - name: Run tests
+        run: pnpm test:ci
